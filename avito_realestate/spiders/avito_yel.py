@@ -6,7 +6,7 @@ class AvitoYelSpider(scrapy.Spider):
     allowed_domains = ['avito.ru']
     start_urls = ['https://avito.ru']
     def __init__(self, region: str, *args, **kwargs):
-        self.start_urls = [f'{self.start_urls[0]}{region}/']
+        self.start_urls = [f'{self.start_urls[0]}/{region}/']
         super().__init__(*args, **kwargs)
 
     pagination = '//div[contains(@data-marker, "pagination-button")]/span/text()'

@@ -2,10 +2,10 @@
 
 Установка:<br>
 pip install -r requirements.txt<br>
-Создать файл config.py в директории spiders с параметром region = 'Москва'
+Создать файл config.py в директории spiders с параметром region = 'sochi/kvartiry'
 
 Запуск:<br>
-python main.py /sochi/kvartiry<br>
+python main.py<br>
 
 Паук обходит пагинацию, извлекает все страницы<br>
 Из каждого объявления извлекает:
