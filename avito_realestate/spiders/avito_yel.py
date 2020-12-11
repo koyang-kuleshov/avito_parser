@@ -1,21 +1,13 @@
-"""
-обойти пагинацию
-извлечь и обойти все страницы объявлений
-
-из самого объявления извлечь следующие данные:
-Заголовок объявления
-Url объявления
-стоимость(если указана)
-список характеристик квартиры ( которые сразу под фото)
-"""
-import scrapy
 from pymongo import MongoClient
-
+import scrapy
 
 class AvitoYelSpider(scrapy.Spider):
     name = 'avito_yel'
     allowed_domains = ['avito.ru']
-    start_urls = ['http://avito.ru/elan/kvartiry/prodam-ASgBAgICAUSSA8YQ']
+    start_urls = ['https://avito.ru']
+    def __init__(self, region: str, *args, **kwargs):
+        self.start_urls = [f'{self.start_urls[0]}{region}/']
+        super().__init__(*args, **kwargs)
 
     pagination = '//div[contains(@data-marker, "pagination-button")]/span/text()'
     ads_url = '//h3[contains(@data-marker, "item-title")]/a/@href'

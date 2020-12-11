@@ -9,6 +9,6 @@ if __name__ == "__main__":
     crawler_settings.setmodule(settings)
     crawler_proc = CrawlerProcess(settings=crawler_settings)
 
-    crawler_proc.crawl(AvitoYelSpider)
+    crawler_proc.crawl(AvitoYelSpider, region)
 
     crawler_proc.start()
